@@ -1,0 +1,46 @@
+# Default configuration for the AgentDojo workspace-suite training run.
+# Used by scripts/train_workspace_smoke.py and (TODO) the 5-seed
+# scripts/train_full_agentdojo.py.
+
+experiment:
+  name: agentdojo_workspace
+  suite: workspace
+  split: test
+  n: 400
+
+model:
+  spec:
+    n_classes: 3              # ALLOW, DENY, NEEDS_OVERSIGHT
+    n_clauses: 200
+    T: 50
+    s: 3.9
+    n_states: 200
+    # Tree geometry (compiled into the CUDA kernel; ignored by the
+    # NumPy CPU reference).
+    R: 2
+    IA: 2
+    IF: 5
+    LA: 15
+    LF: 3
+    # Verdict-resolution thresholds (see docs/ARCHITECTURE.md).
+    tau_allow: 5
+    tau_deny: 3
+    tau_oversight: 2
+
+training:
+  epochs: 100
+  seeds: [1, 2, 3, 5, 8]
+  shuffle: true
+
+eval:
+  per_sample_jsonl: results/jsonl/seed_{seed}/per_sample.jsonl
+  headline_json: results/headline/agentdojo_workspace_seed_{seed}.json
+
+adversarial:
+  enabled: true
+  attacks: [ChatInject, RAG-poison, GCG-MCP-random]
+
+recourse:
+  max_edits: 3
+  max_latency_ms: 50
+  allow_lift_policy: true

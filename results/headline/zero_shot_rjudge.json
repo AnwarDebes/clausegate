@@ -1,0 +1,61 @@
+{
+  "benchmark": "R-Judge",
+  "clauses": 200,
+  "defended_2class": {
+    "accuracy": 0.5148247978436657,
+    "asr": 0.0,
+    "confusion": [
+      [
+        0,
+        180,
+        0
+      ],
+      [
+        0,
+        191,
+        0
+      ],
+      [
+        0,
+        0,
+        0
+      ]
+    ],
+    "macro_f1": 0.22657176749703442
+  },
+  "epochs": 30,
+  "latency_per_call_ms": 7.9687697627152385,
+  "n_test": 371,
+  "predicted_distribution": {
+    "2": 371
+  },
+  "seed": 1,
+  "strict_3class": {
+    "accuracy": 0.0,
+    "asr": 0.0,
+    "benign_utility": 0.0,
+    "confusion": [
+      [
+        0,
+        0,
+        180
+      ],
+      [
+        0,
+        0,
+        191
+      ],
+      [
+        0,
+        0,
+        0
+      ]
+    ],
+    "macro_f1": 0.0
+  },
+  "trained_on": "AgentDojo pooled (workspace+slack+banking+travel)",
+  "true_distribution": {
+    "0": 180,
+    "1": 191
+  }
+}

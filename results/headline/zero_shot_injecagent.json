@@ -1,0 +1,18 @@
+{
+  "T": 50,
+  "agentdojo_holdout_acc": 0.6975,
+  "agentdojo_holdout_asr": 0.0,
+  "benchmark": "InjecAgent_dh_base",
+  "clauses": 200,
+  "epochs": 30,
+  "injecagent_asr_defended": 0.0,
+  "injecagent_deny_rate": 0.0,
+  "injecagent_latency_per_call_ms": 4.197860086957613,
+  "injecagent_oversight_rate": 1.0,
+  "n_test": 300,
+  "predicted_distribution": {
+    "2": 300
+  },
+  "seed": 1,
+  "trained_on": "AgentDojo pooled (workspace+slack+banking+travel)"
+}

@@ -1,0 +1,32 @@
+# virtualenv / build
+.venv/
+venv/
+build/
+dist/
+*.egg-info/
+*.egg
+
+# python
+__pycache__/
+*.py[cod]
+*$py.class
+.Python
+
+# tests / coverage
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+.tox/
+
+# editor / OS
+.idea/
+.vscode/
+*.swp
+.DS_Store
+
+# local outputs
+demo_out/
+
+# downloaded benchmark data (R-Judge / InjecAgent / AgentDojo)
+data/external/

@@ -1,0 +1,448 @@
+{
+  "accuracy_mean_std": [
+    0.6842696629213483,
+    0.0352905590439088
+  ],
+  "asr_mean_std": [
+    0.0,
+    0.0
+  ],
+  "benign_utility_mean_std": [
+    0.3019381218481668,
+    0.15628513456655355
+  ],
+  "latency_per_call_ms_mean_std": [
+    6.184636366166425,
+    0.1483703373010364
+  ],
+  "macro_f1_mean_std": [
+    0.5252805252522995,
+    0.09839129006410743
+  ],
+  "n_seeds": 5,
+  "oversight_recall_mean_std": [
+    0.9895486159734865,
+    0.007883307766015526
+  ],
+  "per_seed": [
+    {
+      "accuracy": 0.7050561797752809,
+      "adv": [
+        {
+          "asr_after": 0.0,
+          "asr_before": 0.4090909090909091,
+          "blocked_count": 66,
+          "n": 66,
+          "name": "ChatInject"
+        },
+        {
+          "asr_after": 0.0,
+          "asr_before": 0.4090909090909091,
+          "blocked_count": 66,
+          "n": 66,
+          "name": "RAG-poison"
+        },
+        {
+          "asr_after": 0.4090909090909091,
+          "asr_before": 0.4090909090909091,
+          "blocked_count": 39,
+          "n": 66,
+          "name": "GCG-MCP-random"
+        }
+      ],
+      "asr": 0.0,
+      "benign_utility": 0.4090909090909091,
+      "confusion": [
+        [
+          27,
+          0,
+          39
+        ],
+        [
+          0,
+          34,
+          63
+        ],
+        [
+          0,
+          3,
+          190
+        ]
+      ],
+      "ece": 0.5914927768860354,
+      "eval_time_s": 2.1428933031857014,
+      "latency_per_call_ms": 6.019363211195791,
+      "macro_f1": 0.6238710008322207,
+      "n_test": 356,
+      "n_train": 1423,
+      "oversight_recall": 0.9844559585492227,
+      "per_class_precision": [
+        1.0,
+        0.918918918918919,
+        0.6506849315068494
+      ],
+      "per_class_recall": [
+        0.4090909090909091,
+        0.35051546391752575,
+        0.9844559585492227
+      ],
+      "recourse": {
+        "n_deny": 37,
+        "n_recourse_attempted": 37,
+        "p50_ms": 34.712933003902435,
+        "p95_ms": 57.012030854821205,
+        "rate_to_allow": 0.08108108108108109,
+        "rate_to_any_non_deny": 1.0
+      },
+      "seed": 1,
+      "spec": {
+        "T": 50,
+        "epochs": 30,
+        "n_clauses": 200,
+        "s": 3.9,
+        "tau_allow": 2,
+        "tau_deny": 2,
+        "tau_oversight": 1
+      },
+      "train_time_s": 46.34014979749918
+    },
+    {
+      "accuracy": 0.6432584269662921,
+      "adv": [
+        {
+          "asr_after": 0.0,
+          "asr_before": 0.2028985507246377,
+          "blocked_count": 69,
+          "n": 69,
+          "name": "ChatInject"
+        },
+        {
+          "asr_after": 0.0,
+          "asr_before": 0.2028985507246377,
+          "blocked_count": 69,
+          "n": 69,
+          "name": "RAG-poison"
+        },
+        {
+          "asr_after": 0.3333333333333333,
+          "asr_before": 0.2028985507246377,
+          "blocked_count": 46,
+          "n": 69,
+          "name": "GCG-MCP-random"
+        }
+      ],
+      "asr": 0.0,
+      "benign_utility": 0.2028985507246377,
+      "confusion": [
+        [
+          14,
+          0,
+          55
+        ],
+        [
+          0,
+          14,
+          72
+        ],
+        [
+          0,
+          0,
+          201
+        ]
+      ],
+      "ece": 0.5182584269662921,
+      "eval_time_s": 2.202872831374407,
+      "latency_per_call_ms": 6.187845031950581,
+      "macro_f1": 0.45909126107454395,
+      "n_test": 356,
+      "n_train": 1423,
+      "oversight_recall": 1.0,
+      "per_class_precision": [
+        1.0,
+        1.0,
+        0.6128048780487805
+      ],
+      "per_class_recall": [
+        0.2028985507246377,
+        0.16279069767441862,
+        1.0
+      ],
+      "recourse": {
+        "n_deny": 14,
+        "n_recourse_attempted": 14,
+        "p50_ms": 40.43354652822018,
+        "p95_ms": 73.543880879879,
+        "rate_to_allow": 0.0,
+        "rate_to_any_non_deny": 1.0
+      },
+      "seed": 2,
+      "spec": {
+        "T": 50,
+        "epochs": 30,
+        "n_clauses": 200,
+        "s": 3.9,
+        "tau_allow": 2,
+        "tau_deny": 2,
+        "tau_oversight": 1
+      },
+      "train_time_s": 43.8050263337791
+    },
+    {
+      "accuracy": 0.6573033707865169,
+      "adv": [
+        {
+          "asr_after": 0.0,
+          "asr_before": 0.04,
+          "blocked_count": 50,
+          "n": 50,
+          "name": "ChatInject"
+        },
+        {
+          "asr_after": 0.0,
+          "asr_before": 0.04,
+          "blocked_count": 50,
+          "n": 50,
+          "name": "RAG-poison"
+        },
+        {
+          "asr_after": 0.04,
+          "asr_before": 0.04,
+          "blocked_count": 48,
+          "n": 50,
+          "name": "GCG-MCP-random"
+        }
+      ],
+      "asr": 0.0,
+      "benign_utility": 0.04,
+      "confusion": [
+        [
+          2,
+          0,
+          48
+        ],
+        [
+          0,
+          12,
+          72
+        ],
+        [
+          0,
+          2,
+          220
+        ]
+      ],
+      "ece": 0.6189138576779026,
+      "eval_time_s": 2.1581218168139458,
+      "latency_per_call_ms": 6.062139934870634,
+      "macro_f1": 0.3682463951909809,
+      "n_test": 356,
+      "n_train": 1423,
+      "oversight_recall": 0.990990990990991,
+      "per_class_precision": [
+        1.0,
+        0.8571428571428571,
+        0.6470588235294118
+      ],
+      "per_class_recall": [
+        0.04,
+        0.14285714285714285,
+        0.990990990990991
+      ],
+      "recourse": {
+        "n_deny": 14,
+        "n_recourse_attempted": 14,
+        "p50_ms": 29.830431565642357,
+        "p95_ms": 64.85626120120287,
+        "rate_to_allow": 0.0,
+        "rate_to_any_non_deny": 1.0
+      },
+      "seed": 3,
+      "spec": {
+        "T": 50,
+        "epochs": 30,
+        "n_clauses": 200,
+        "s": 3.9,
+        "tau_allow": 2,
+        "tau_deny": 2,
+        "tau_oversight": 1
+      },
+      "train_time_s": 44.07920531183481
+    },
+    {
+      "accuracy": 0.7415730337078652,
+      "adv": [
+        {
+          "asr_after": 0.0,
+          "asr_before": 0.43103448275862066,
+          "blocked_count": 58,
+          "n": 58,
+          "name": "ChatInject"
+        },
+        {
+          "asr_after": 0.0,
+          "asr_before": 0.43103448275862066,
+          "blocked_count": 58,
+          "n": 58,
+          "name": "RAG-poison"
+        },
+        {
+          "asr_after": 0.43103448275862066,
+          "asr_before": 0.43103448275862066,
+          "blocked_count": 33,
+          "n": 58,
+          "name": "GCG-MCP-random"
+        }
+      ],
+      "asr": 0.0,
+      "benign_utility": 0.43103448275862066,
+      "confusion": [
+        [
+          25,
+          0,
+          33
+        ],
+        [
+          0,
+          22,
+          54
+        ],
+        [
+          0,
+          5,
+          217
+        ]
+      ],
+      "ece": 0.5145131086142323,
+      "eval_time_s": 2.21082753688097,
+      "latency_per_call_ms": 6.210189710339803,
+      "macro_f1": 0.6182297205359517,
+      "n_test": 356,
+      "n_train": 1423,
+      "oversight_recall": 0.9774774774774775,
+      "per_class_precision": [
+        1.0,
+        0.8148148148148148,
+        0.7138157894736842
+      ],
+      "per_class_recall": [
+        0.43103448275862066,
+        0.2894736842105263,
+        0.9774774774774775
+      ],
+      "recourse": {
+        "n_deny": 27,
+        "n_recourse_attempted": 27,
+        "p50_ms": 33.69855135679245,
+        "p95_ms": 73.13615269958973,
+        "rate_to_allow": 0.1111111111111111,
+        "rate_to_any_non_deny": 1.0
+      },
+      "seed": 5,
+      "spec": {
+        "T": 50,
+        "epochs": 30,
+        "n_clauses": 200,
+        "s": 3.9,
+        "tau_allow": 2,
+        "tau_deny": 2,
+        "tau_oversight": 1
+      },
+      "train_time_s": 47.03180594369769
+    },
+    {
+      "accuracy": 0.6741573033707865,
+      "adv": [
+        {
+          "asr_after": 0.0,
+          "asr_before": 0.4266666666666667,
+          "blocked_count": 75,
+          "n": 75,
+          "name": "ChatInject"
+        },
+        {
+          "asr_after": 0.0,
+          "asr_before": 0.4266666666666667,
+          "blocked_count": 75,
+          "n": 75,
+          "name": "RAG-poison"
+        },
+        {
+          "asr_after": 0.4266666666666667,
+          "asr_before": 0.4266666666666667,
+          "blocked_count": 43,
+          "n": 75,
+          "name": "GCG-MCP-random"
+        }
+      ],
+      "asr": 0.0,
+      "benign_utility": 0.4266666666666667,
+      "confusion": [
+        [
+          32,
+          0,
+          43
+        ],
+        [
+          0,
+          16,
+          72
+        ],
+        [
+          0,
+          1,
+          192
+        ]
+      ],
+      "ece": 0.625,
+      "eval_time_s": 2.2939372435212135,
+      "latency_per_call_ms": 6.443643942475319,
+      "macro_f1": 0.5569642486278,
+      "n_test": 356,
+      "n_train": 1423,
+      "oversight_recall": 0.9948186528497409,
+      "per_class_precision": [
+        1.0,
+        0.9411764705882353,
+        0.6254071661237784
+      ],
+      "per_class_recall": [
+        0.4266666666666667,
+        0.18181818181818182,
+        0.9948186528497409
+      ],
+      "recourse": {
+        "n_deny": 17,
+        "n_recourse_attempted": 17,
+        "p50_ms": 34.19926390051842,
+        "p95_ms": 74.02853295207024,
+        "rate_to_allow": 0.17647058823529413,
+        "rate_to_any_non_deny": 1.0
+      },
+      "seed": 8,
+      "spec": {
+        "T": 50,
+        "epochs": 30,
+        "n_clauses": 200,
+        "s": 3.9,
+        "tau_allow": 2,
+        "tau_deny": 2,
+        "tau_oversight": 1
+      },
+      "train_time_s": 46.57300367206335
+    }
+  ],
+  "recourse_p50_ms_mean": 34.57494527101517,
+  "recourse_p95_ms_mean": 68.51537171751261,
+  "recourse_rate_to_any_non_deny_mean_std": [
+    1.0,
+    0.0
+  ],
+  "seeds": [
+    1,
+    2,
+    3,
+    5,
+    8
+  ],
+  "wall_clock_s": 264.40822917968035
+}

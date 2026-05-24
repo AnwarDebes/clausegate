@@ -1,0 +1,38 @@
+cff-version: 1.2.0
+title: "ClauseGate: Interpretable Verification of LLM Agent Tool Calls via Tri-Graph Tsetlin Machines with SAT-Verifiable Receipts and Counterfactual Argument Recourse"
+type: software
+authors:
+  - family-names: Anwar
+    affiliation: "University of Agder (UiA)"
+abstract: >
+  A symbolic verification layer for any LLM-driven autonomous agent or
+  MCP-style tool host. ClauseGate ingests the agent's proposed tool call,
+  retrieved RAG context, and operator policy, builds a typed-edge
+  multigraph, and emits an ALLOW / DENY / NEEDS-OVERSIGHT verdict together
+  with the firing Boolean clauses, a SAT-verifiable signed receipt, and a
+  counterfactual minimal-argument-edit that would flip the decision. The
+  pipeline composes the Hierarchical Graph Tsetlin Machine and CUDA kernels
+  from graphtm-cbr, the SAT receipt machinery from clauseguard, and the
+  structural-distillation primitive from attention-distilled-graphtm.
+  Targets EU AI Act Article 14 (human oversight) + Article 15
+  (robustness/cybersecurity), OWASP LLM01:2025 (Prompt Injection), MITRE
+  ATLAS AML.T0051/T0054/T0096, and NIST AI 600-1 (interpretability +
+  confabulation) for any agentic system handling untrusted inputs.
+date-released: 2026-05-24
+license: MIT
+keywords:
+  - Tsetlin Machine
+  - Graph Tsetlin Machine
+  - Hierarchical Tsetlin Machine
+  - LLM agent safety
+  - Model Context Protocol
+  - MCP
+  - tool-call verification
+  - prompt injection
+  - interpretable AI
+  - SAT verification
+  - counterfactual recourse
+  - EU AI Act
+  - OWASP LLM Top 10
+  - MITRE ATLAS
+  - neuro-symbolic
