@@ -1,5 +1,18 @@
 # ClauseGate
 
+▶ See this project in the film *Show Its Work*: https://youtu.be/pefnyZ-oCcM?t=1095
+
+ClauseGate checks an LLM agent's tool calls before they run, using
+Boolean rules a person can read instead of another opaque LLM judge.
+Every call gets ALLOW, DENY or NEEDS-OVERSIGHT, together with the
+clauses that fired, a signed receipt an auditor can re-check with a
+SAT solver, and the smallest argument edit that would have changed
+the verdict. In the 5-seed AgentDojo run no attack got through, but
+only 30 % of honest calls were approved outright; the rest went to a
+human reviewer (`results/headline/agentdojo_full_5seed_aggregate.json`).
+It is a research prototype: it runs on CPU so far and the paper is
+still a draft.
+
 > **An interpretable verification layer for any LLM agent or
 > Model-Context-Protocol (MCP) tool host.** A tri-graph
 > Hierarchical Graph Tsetlin Machine evaluates Boolean clauses
@@ -18,8 +31,9 @@
 > **5-seed AgentDojo training complete. CPU pipeline; locked
 > numbers below.** Architecture frozen, all eight modules
 > implemented, 56 / 56 tests pass, the 5-seed protocol on AgentDojo
-> (workspace + slack + banking + travel pooled) ran in ≈ 3.5 min on
-> CPU (Tesla V100 was idle; the vectorised vanilla TM is the
+> (workspace + slack + banking + travel pooled) ran in ≈ 4.4 min on
+> CPU (264 s wall clock in
+> `results/headline/agentdojo_full_5seed_aggregate.json`; Tesla V100 was idle; the vectorised vanilla TM is the
 > bottleneck, not the GPU). Zero-shot transfer to InjecAgent and
 > R-Judge measured. The CUDA backend wrapper for the upstream
 > graphtm-cbr kernels is still pending; expected wall-clock for a
@@ -40,7 +54,7 @@
 | Adversarial robustness harness (ChatInject, GCG-MCP stub, RAG-poison) | done |
 | Unit + integration tests (56 / 56 pass) | passing |
 | Package installs cleanly (`pip install -e .`) | done |
-| **AgentDojo full 5-seed training run** | **done (3.5 min on CPU)** |
+| **AgentDojo full 5-seed training run** | **done (4.4 min on CPU)** |
 | **Zero-shot transfer to InjecAgent / R-Judge** | **done** |
 | **Adversarial robustness evaluation** | **done** |
 | GPU-scale CUDA wrapper (`backend="cuda"`) for graphtm-cbr kernels | pending |
@@ -81,9 +95,11 @@ ClauseGate provides:
 3. A **counterfactual minimal-argument-edit recourse** that tells
    the agent operator the smallest change to the tool call (or to
    the policy graph) that would have flipped the verdict.
-4. **Sub-50 ms** end-to-end verification on a single proposed
-   tool call (V100 P95), fast enough to sit inline in front of
-   every MCP server tool execution.
+4. **About 6 ms** of verification per proposed tool call on CPU
+   (6.18 ms, 5-seed mean of test-set prediction time per call in
+   `results/headline/agentdojo_full_5seed_aggregate.json`), fast
+   enough to sit inline in front of every MCP server tool
+   execution. GPU latency is not measured yet.
 
 ## Architecture at a glance
 
@@ -153,12 +169,12 @@ aggregate at `results/headline/agentdojo_full_5seed_aggregate.json`.
 ### Honest caveats on the locked numbers
 
 - **Benign utility (0.302)** is below the 0.60 target. The verifier
-  is over-cautious: 99 % of true ALLOWs that ClauseGate does NOT
-  approve outright are upgraded to NEEDS_OVERSIGHT (the
-  oversight_recall is 0.990). In a deployed pipeline that means a
-  human reviewer sees about 60-70 % of benign traffic. That trade
-  is **deliberate and conservative**: per-class precision on the
-  ALLOW class is 1.000 in 4 of 5 seeds. When ClauseGate says
+  is over-cautious: every true ALLOW that ClauseGate does NOT
+  approve outright is upgraded to NEEDS_OVERSIGHT, and none is
+  denied (confusion matrices in the aggregate JSON). In a deployed
+  pipeline that means a human reviewer sees about 60-70 % of benign
+  traffic. That trade is **deliberate and conservative**: per-class
+  precision on the ALLOW class is 1.000 in all 5 seeds. When ClauseGate says
   ALLOW, it is correct in every seed where it issues an ALLOW.
   To shift utility up, the next round can (a) extend the
   symbol vocabulary, (b) train on a larger AgentDojo augmentation
@@ -199,16 +215,17 @@ clausegate/
 │   ├── data/                  M6  AgentDojo / InjecAgent / R-Judge / synthetic loaders
 │   ├── eval/                  M7  metrics + adversarial harness + logger
 │   └── utils/                 M8  seeding + deterministic IO helpers
-├── tests/
+├── tests/                     56 unit + integration tests
 ├── configs/
-├── experiments/
-├── scripts/
-├── results/                   per-seed JSONL logs and headline JSONs (empty)
+├── experiments/               verify_receipt.py: stand-alone receipt auditor
+├── scripts/                   AgentDojo training + zero-shot transfer runs
+├── results/                   per-seed JSONL logs, headline JSONs, exemplar receipts
 ├── pyproject.toml
 ├── requirements.txt
 ├── CITATION.cff
 ├── LICENSE
-└── PAPER.md                   paper draft
+├── PAPER.md                   paper draft
+└── STATUS.md                  status notes and run timings
 ```
 
 ## Quick start
