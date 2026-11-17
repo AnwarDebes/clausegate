@@ -2,6 +2,8 @@
 
 ▶ See this project in the film *Show Its Work*: https://youtu.be/pefnyZ-oCcM?t=1095
 
+▶ Watch it in 40 seconds: https://anwardebes.github.io/shorts/#clausegate
+
 ClauseGate checks an LLM agent's tool calls before they run, using
 Boolean rules a person can read instead of another opaque LLM judge.
 Every call gets ALLOW, DENY or NEEDS-OVERSIGHT, together with the
